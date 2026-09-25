@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+body{
+  background-image: url(../image/Livy.PNG), url(../image/backImg04.jpg);
+  background-size: 1250px auto, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* オーバーレイなし */
+div.overlay{
+  display: none;
+}
+
+/* カード */
+div#card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 8%;
+  width: 90%;
+  max-width: 420px;
+  padding: 1.8rem;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* コンセプト */
+div#card p{
+  margin: 0 0 20px 0;
+  color: #ffffff;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ボタンエリア */
+div#login{
+  display: flex;
+  gap: 14px;
+}
+
+/* 共通ボタン */
+div#login button{
+  width: 150px;
+  height: 48px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* ログイン */
+button#loginbutton{
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* 会員登録 */
+button#signupbutton{
+  background: #111;
+  color: #fff;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ホバー */
+button#loginbutton:hover,
+button#signupbutton:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* クリック */
+button#loginbutton:active,
+button#signupbutton:active{
+  transform: scale(0.97);
+}
+
+/* JavaScript */
+#ripple-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.ripple {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(66, 108, 136, 0.9);
+    border-radius: 50%;
+  /* 波紋を7秒かけて再生 */
+  animation: ripple 7s ease-out forwards;
+}
+
+@keyframes ripple {
+
+    /* 開始 */
+    0% {
+        /* 中心位置を維持しながら少し小さめで表示 */
+        transform: translate(-50%, -50%) scale(0.3);
+        /* 薄く見える*/
+        opacity: 0.4;
+    }
+
+    /* おわり */
+    100% {
+        /* 円を大きく広げる */
+        transform: translate(-50%, -50%) scale(12);
+
+        /* ゆっくり透明にして消す */
+        opacity: 0;
+    }
+}
