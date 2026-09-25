@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livy Top</title>
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+
+    <!-- js -->
+    <script src="../static/js/index.js" defer></script>
+
+    <!-- font awesome -->
+    <link href="https://use.fontawesome.com/releases/v6.7.2/css/all.css" rel="stylesheet">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <header>
+      
+      <div class="topRow">
+
+        <div class="topLeft">
+          <img src="../static/image/Logo01.PNG" alt="Livy Logo01">
+        </div>
+
+        <div class="topCenter">
+          <!-- 検索 -->
+          <form action="/search" method="GET">
+
+              <div id="searchBox">
+
+                  <input class="shippori-mincho-regular" type="text" name="keyword" placeholder=" キーワードで検索" class="shippori-mincho-regular">
+                  <i class="fa-solid fa-magnifying-glass" style="color: rgb(0, 0, 0);"></i>
+              
+              </div>
+
+          </form>
+        </div>
+
+        <div class="topRight">
+          <!-- TOPにスクロール -->
+          <button type="button" class="shippori-mincho-regular">TOP</button>
+
+          <!-- 先生/生徒切り替え -->
+          <button type="button" id="change" class="shippori-mincho-regular">先生/生徒 切り替え</button>
+        </div>
+
+      </div>
+
+      <div class="navRow">
+
+        <div class="navLeft">
+          <!-- ハンバーガーメニュー -->
+          <div class="menu-wrapper">
+
+            <input type="checkbox" id="menu-toggle" hidden>
+
+            <label class="menu-icon" for="menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+
+            <div class="overlay"></div>
+
+            <nav class="menu pt-serif-regular-italic">
+              <ul>
+                <li><a href="#" class="text shippori-mincho-regular">保存した投稿</a></li>
+                <li><a href="#" class="text shippori-mincho-regular">お知らせ</a></li>
+                <li><a href="#" class="text shippori-mincho-regular">利用規約</a></li>
+              </ul>
+            </nav>
+
+          </div>
+        </div>
+
+        <div class="navCenter">
+          <!-- カテゴリボタン -->
+          <nav id="category">
+            <button type="button" class="shippori-mincho-regular">カテゴリ名</button>
+            <button type="button" class="shippori-mincho-regular">カテゴリ名</button>
+            <button type="button" class="shippori-mincho-regular">カテゴリ名</button>
+          </nav>
+        </div>
+
+        <div class="navRight">
+          <button type="button" id="ac" class="shippori-mincho-regular">アカウントを作成/ログイン</button>
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- モーダルの背景マスク -->
+    <div class="mask"></div>
+
+      <!-- モーダル本体（フルスクリーン対応クラスを追加） -->
+      <div class="modal fullscreen">
+        <div class="modal-content">
+          <div class="close-btn-container">
+            <button type="button" class="close-btn">×</button>
+          </div>
+
+          <div class="fullscreen-content">
+              
+            <form class="loginForm">
+              <input type="text" placeholder="ユーザー名又は、電話番号・メールアドレス" class="shippori-mincho-regular">
+              <input type="password" placeholder="パスワード" class="shippori-mincho-regular">
+            </form>
+
+            <div class="close-btn-container">
+              <button type="button" class="login shippori-mincho-regular">ログイン</button>
+            </div>
+
+            <div class="accMake">
+              <a href="accountMake.html" class="accLink shippori-mincho-regular">新規登録はこちら</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    <main class="shippori-mincho-regular">
+
+      <div id="center">
+        <h2 id="top">投稿</h2>
+      </div>
+
+      <section id="postList">
+
+        <!-- ここfor文で回す -->
+        <!-- .post一個で一つの投稿 -->
+        <div class="post">
+
+          <article>
+
+            <div class="cardHead">
+
+              <img src="" alt="アイコン">
+              <h3 class="postTitle">タイトル</h3>
+
+            </div>
+
+            <div class="postBody">
+              <p>3~4行表示、それ以上は続きを読むを押す</p>
+              <!-- 続きを読むを押したら添付された画像が文章の下に表示されるようにする -->
+
+              <!-- 生徒：自分の投稿にのみ表示されるように -->
+              <!-- <section class="bid">
+                <div class="student">
+
+                  <div>
+                    <img src="" alt="アイコン">
+                    <a>入札価格</a>
+                    <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
+                  </div>
+
+                </div>
+              </section> -->
+
+              <!-- 先生側にのみ表示 -->
+              <!-- <section class="bid">
+                <div class="teacher">
+                  
+                  <div class="ather">
+                    <img src="" alt="アイコン">
+                    <a>入札価格</a>
+                    <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
+                  </div>
+
+                  <div class="mine">
+                    <img src="" alt="アイコン">
+                    <a>入札価格</a>
+                    <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
+                  </div>
+
+                </div>
+              </section> -->
+
+            </div>
+                      
+            <div class="cardFooter">
+
+              <a class="time">残り入札時間</a>
+
+              <!-- タグ:クリック前 -->
+              <button type="button" class="markBtn"><i class="fa-regular fa-bookmark" style="color: rgb(0, 0, 0);"></i></button>
+              <!-- タグ：クリック後　jsで切り替え処理済み -->
+              <!-- これただのめも<button type="button"><i class="fa-solid fa-bookmark" style="color: rgb(0, 0, 0);"></i></button> -->
+
+            </div>
+
+          </article>
+
+        </div>
+        <!-- ここまでfor文 -->
+
+      </section>
+
+      <section id="under">
+
+        <!-- myPageに遷移 -->
+        <!-- 初期状態これ、アイコン設定されていたらアイコンの画像 -->
+        <button type="button" class="myPageBtn"><i class="fa-regular fa-circle-user" style="color: rgb(0, 0, 0);"></i></button>
+        
+        <!-- post.htmlに遷移 -->
+        <button type="button" class="postBtn"><i class="fa-solid fa-circle-plus" style="color: #222;"></i></button>
+
+      </section>
+
+      <!-- 検索結果表示 -->
+      <!-- flask,DB連携して仮データ入れられた後に配置調整したい -->
+      <!--  if kari == 'search' とかで表示させらる -->
+      <!-- <section class="searchResult">
+
+        投稿検索の結果
+
+        ユーザ検索の結果
+
+      </section> -->
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+</body>
+</html>
