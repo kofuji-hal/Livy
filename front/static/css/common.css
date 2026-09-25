@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+/* 共通 */
+body{
+  background-image: url(../image/backImg01.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;/* 背景画像繰り返しなし */
+  background-attachment: fixed;/* 画像固定 */
+
+  color: #000;
+  user-select: none;
+  
+}
+/* 全フォーカスの枠線を消す */
+*:focus {
+  outline: none;
+}
+
+
+
+
+
+/* fonts */
+.shippori-mincho-regular {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
