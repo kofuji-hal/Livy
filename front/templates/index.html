@@ -155,38 +155,6 @@
               <p>3~4行表示、それ以上は続きを読むを押す</p>
               <!-- 続きを読むを押したら添付された画像が文章の下に表示されるようにする -->
 
-              <!-- 生徒：自分の投稿にのみ表示されるように -->
-              <!-- <section class="bid">
-                <div class="student">
-
-                  <div>
-                    <img src="" alt="アイコン">
-                    <a>入札価格</a>
-                    <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
-                  </div>
-
-                </div>
-              </section> -->
-
-              <!-- 先生側にのみ表示 -->
-              <!-- <section class="bid">
-                <div class="teacher">
-                  
-                  <div class="ather">
-                    <img src="" alt="アイコン">
-                    <a>入札価格</a>
-                    <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
-                  </div>
-
-                  <div class="mine">
-                    <img src="" alt="アイコン">
-                    <a>入札価格</a>
-                    <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
-                  </div>
-
-                </div>
-              </section> -->
-
             </div>
                       
             <div class="cardFooter">
@@ -206,6 +174,52 @@
         <!-- ここまでfor文 -->
 
       </section>
+
+
+      <!-- 以下二つとも、続きを読むを押したら表示されるように -->
+      <!-- 生徒：自分の投稿にのみ表示されるように -->
+      <section class="bidList">
+
+        <!-- .bidCardをfor文で回す -->
+        <div class="bidCard">
+
+          <div class="bidRow">
+
+            <div class="bidLeft">
+              <a href="myPage.html"><!-- その人のマイページに飛べるように -->
+                <img src="" alt="アイコン">
+              </a>
+              <a>入札価格：</a>
+            </div>
+
+            <div class="bidRight">
+              <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
+            </div>
+
+          </div>
+
+        </div>      
+      </section>
+
+      <!-- 先生側にのみ表示 -->
+      <!-- <section class="bid">
+        <div class="teacher">
+                  
+          <div class="ather">
+            <img src="" alt="アイコン">
+            <a>入札価格</a>
+            <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
+          </div>
+
+          <div class="mine">
+            <img src="" alt="アイコン">
+            <a>入札価格</a>
+            <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
+          </div>
+
+        </div>
+      </section> -->
+
 
       <section id="under">
 
