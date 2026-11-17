@@ -103,65 +103,69 @@
 
     </header>
 
+    <!-- ログイン、切り替えモーダル -->
     <!-- login -->
-    <!-- モーダルの背景マスク -->
     <div class="mask" data-modal-name="loginModal"></div>
 
-      <!-- モーダル本体（フルスクリーン対応クラスを追加） -->
-      <div class="modal fullscreen" data-modal-name="loginModal">
-        <div class="modal-content">
+    <div class="modal fullscreen" data-modal-name="loginModal">
+      <div class="modal-content">
 
-          <div class="close-btn-container">
-            <button type="button" class="close-btn">×</button>
-          </div>
-
-          <div class="fullscreen-content">
-              
-            <form class="loginForm">
-              <input type="text" placeholder="ユーザー名又は、電話番号・メールアドレス" class="shippori-mincho-regular">
-              <input type="password" placeholder="パスワード" class="shippori-mincho-regular">
-            </form>
-
-            <div class="close-btn-container">
-              <button type="button" class="login shippori-mincho-regular">ログイン</button>
-            </div>
-
-            <div class="accMake">
-              <a href="accountMake.html" class="accLink shippori-mincho-regular">新規登録はこちら</a>
-            </div>
-
-          </div>
+        <div class="close-btn-container">
+          <button type="button" class="close-btn" aria-label="閉じる">
+            ×
+          </button>
         </div>
 
+        <div class="fullscreen-content">
+
+          <form class="loginForm">
+            <input type="text" placeholder="ユーザー名又は、電話番号・メールアドレス" class="shippori-mincho-regular">
+            <input type="password" placeholder="パスワード" class="shippori-mincho-regular">
+          </form>
+
+          <div class="modalButtonContainer">
+            <button type="button" class="modalButton login shippori-mincho-regular">
+              ログイン
+            </button>
+          </div>
+
+          <div class="accMake">
+            <a href="accountMake.html" class="accLink shippori-mincho-regular">
+              新規登録はこちら
+            </a>
+          </div>
+
+        </div>
       </div>
+    </div>
+
 
     <!-- Th/St change -->
-    <!-- モーダルの背景マスク -->
     <div class="mask" data-modal-name="changeModal"></div>
 
-      <!-- モーダル本体（フルスクリーン対応クラスを追加） -->
-      <div class="modal fullscreen" data-modal-name="changeModal">
-        <div class="modal-content">
+    <div class="modal fullscreen" data-modal-name="changeModal">
+      <div class="modal-content">
 
-          <!-- <div class="close-btn-container">
-            <button type="button" class="close-btn">×</button>
-          </div> -->
+        <div class="fullscreen-content">
 
-          <div class="fullscreen-content">
+          <p id="changeText" class="modalMessage shippori-mincho-regular">
+            先生/生徒 から 先生/生徒 へ切り替えますか
+          </p>
 
-          <div>
-            <p id="changeText" class="changeBtn shippori-mincho-regular">先生/生徒 から 先生/生徒 へ切り替えますか</p>
+          <div class="changeBtnContainer">
+            <button type="button" id="changeYesBtn" class="changeBtn shippori-mincho-regular">
+              はい
+            </button>
+
+            <button type="button" id="changeNoBtn" class="changeBtn shippori-mincho-regular">
+              いいえ
+            </button>
           </div>
-              
-            <div class="close-btn-container changeBtnContainer">
-              <button type="button" class="changeBtn shippori-mincho-regular" id="changeYesBtn">はい</button>
-              <button type="button" class="changeBtn shippori-mincho-regular" id="changeNoBtn">いいえ</button>
-            </div>
 
-          </div>
         </div>
-        
       </div>
+    </div>
+    <!-- ログイン、切り替えモーダル -->
 
 
 
@@ -173,112 +177,429 @@
 
       <section id="postList">
 
-        <!-- for文 -->
-        <!-- .post一個で一つの投稿 -->
-        <div class="post">
+        <!-- for文開始 -->
+        <!-- 1つの.postItemで投稿1件分 -->
+        <div class="postItem">
 
-          <article>
+          <!-- 投稿内容 -->
+          <div class="post">
 
-            <div class="cardHead">
+            <article>
 
-              <!-- 仮のアイコン画像 -->
-              <img src="../static/image/backImg03.jpg" alt="アイコン">
-              <h3 class="postTitle">タイトル</h3>
+              <div class="cardHead">
 
-            </div>
+                <!-- 仮のアイコン画像 -->
+                <img
+                  src="../static/image/backImg03.jpg"
+                  alt="アイコン"
+                >
 
-            <div class="postBody">
+                <h3 class="postTitle">タイトル</h3>
 
-              <p class="postText">
-                3~4行表示、それ以上は続きを読むを押す<br>
-                ああああああああああああああああああ<br>
-                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
-                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
-                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              </p>
-
-              <!-- 画像あれば表示、続きを読むが押されたら表示 -->
-              <div class="wrap postImg">
-                  <p class="img"><img src="../static/image/backImg03.jpg" alt="サンプル画像" class="popup"></p>
-                  <p class="img"><img src="../static/image/backImg03.jpg" alt="サンプル画像" class="popup"></p>
-                  <p class="img"><img src="../static/image/backImg03.jpg" alt="サンプル画像" class="popup" ></p>
               </div>
 
-              <label class="readMoreLabel">
-                <input type="checkbox" class="readMoreToggle">...続きを読む
-              </label>
+              <div class="postBody">
+
+                <p class="postText">
+                  3～4行表示、それ以上は続きを読むを押す<br>
+                  ああああああああああああああああああ<br>
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+
+                <!-- 画像3枚 -->
+                <!-- 続きを読むが押されたら表示 -->
+                <div class="wrap postImg">
+
+                  <p class="img">
+                    <img
+                      src="../static/image/backImg03.jpg"
+                      alt="サンプル画像"
+                      class="popup"
+                    >
+                  </p>
+
+                  <p class="img">
+                    <img
+                      src="../static/image/backImg03.jpg"
+                      alt="サンプル画像"
+                      class="popup"
+                    >
+                  </p>
+
+                  <p class="img">
+                    <img
+                      src="../static/image/backImg03.jpg"
+                      alt="サンプル画像"
+                      class="popup"
+                    >
+                  </p>
+
+                </div>
+
+                <label class="readMoreLabel">
+                  <input
+                    type="checkbox"
+                    class="readMoreToggle"
+                  >
+                  ...続きを読む
+                </label>
+
+              </div>
+
+              <div class="cardFooter">
+
+                <a class="time">
+                  入札終了まで：MM/dd hh:mm:ss
+                </a>
+
+                <!-- ブックマークボタン -->
+                <button
+                  type="button"
+                  class="markBtn"
+                >
+                  <i
+                    class="fa-regular fa-bookmark"
+                    style="color: rgb(0, 0, 0);"
+                  ></i>
+                </button>
+
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <!-- 入札者を決定する画面 -->
+          <!-- 生徒：自分の投稿にのみ表示 -->
+          <section class="bidList">
+
+            <!-- .bidCardをfor文で回す -->
+            <div class="bidCard">
+
+              <div class="bidRow">
+
+                <div class="bidLeft">
+
+                  <!-- その人のマイページへ移動 -->
+                  <a href="myPage.html">
+                    <img src="" alt="アイコン">
+                  </a>
+
+                  <a>入札価格：12345円</a>
+
+                </div>
+
+                <div class="bidRight">
+
+                  <button
+                    type="button"
+                    class="decisionBtn shippori-mincho-regular"
+                  >
+                    決定
+                  </button>
+
+                </div>
+
+              </div>
 
             </div>
-                      
-            <div class="cardFooter">
 
-              <a class="time">入札終了まで：MM/dd hh:mm:ss</a>
+          </section>
 
-              <!-- タグ:クリック前 -->
-              <button type="button" class="markBtn"><i class="fa-regular fa-bookmark" style="color: rgb(0, 0, 0);"></i></button>
-              <!-- タグ：クリック後　jsで切り替え処理済み -->
-              <!-- これただのめも<button type="button"><i class="fa-solid fa-bookmark" style="color: rgb(0, 0, 0);"></i></button> -->
+
+          <!-- 入札価格を入力する画面 -->
+          <!-- 先生側にのみ表示 -->
+          <section class="bidList">
+
+            <div class="bidCard">
+
+              <div class="bidRowTh">
+
+                <!-- .bidInfoをfor文で回す -->
+                <div class="bidInfo">
+
+                  <div class="bidLeft">
+
+                    <!-- その人のマイページへ移動 -->
+                    <a href="myPage.html">
+                      <img src="" alt="アイコン">
+                    </a>
+
+                    <a>入札価格：12345円</a>
+
+                  </div>
+
+                  <!-- 自分の入札価格表示場所 -->
+                  <div class="bidRightTh">
+
+                    <img src="" alt="アイコン">
+
+                    <a>入札価格：12345円</a>
+
+                  </div>
+
+                </div>
+
+                <!-- 入札価格入力欄：for文外 -->
+                <div class="bidDownTh">
+
+                  <input
+                    type="text"
+                    placeholder="入札価格を500円以上xxxx円以下で入力"
+                    class="inputBid shippori-mincho-regular"
+                  >
+
+                </div>
+
+              </div>
 
             </div>
 
-          </article>
+          </section>
 
         </div>
         <!-- ここまでfor文 -->
 
       </section>
 
+      <section id="postList">
+
+        <!-- for文開始 -->
+        <!-- 1つの.postItemで投稿1件分 -->
+        <div class="postItem">
+
+          <!-- 投稿内容 -->
+          <div class="post">
+
+            <article>
+
+              <div class="cardHead">
+
+                <!-- 仮のアイコン画像 -->
+                <img
+                  src="../static/image/backImg03.jpg"
+                  alt="アイコン"
+                >
+
+                <h3 class="postTitle">タイトル</h3>
+
+              </div>
+
+              <div class="postBody">
+
+                <p class="postText">
+                  3～4行表示、それ以上は続きを読むを押す<br>
+                  ああああああああああああああああああ<br>
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+
+                <!-- 画像3枚 -->
+                <!-- 続きを読むが押されたら表示 -->
+                <div class="wrap postImg">
+
+                  <p class="img">
+                    <img
+                      src="../static/image/backImg03.jpg"
+                      alt="サンプル画像"
+                      class="popup"
+                    >
+                  </p>
+
+                  <p class="img">
+                    <img
+                      src="../static/image/backImg03.jpg"
+                      alt="サンプル画像"
+                      class="popup"
+                    >
+                  </p>
+
+                  <p class="img">
+                    <img
+                      src="../static/image/backImg03.jpg"
+                      alt="サンプル画像"
+                      class="popup"
+                    >
+                  </p>
+
+                </div>
+
+                <label class="readMoreLabel">
+                  <input
+                    type="checkbox"
+                    class="readMoreToggle"
+                  >
+                  ...続きを読む
+                </label>
+
+              </div>
+
+              <div class="cardFooter">
+
+                <a class="time">
+                  入札終了まで：MM/dd hh:mm:ss
+                </a>
+
+                <!-- ブックマークボタン -->
+                <button
+                  type="button"
+                  class="markBtn"
+                >
+                  <i
+                    class="fa-regular fa-bookmark"
+                    style="color: rgb(0, 0, 0);"
+                  ></i>
+                </button>
+
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <!-- 入札者を決定する画面 -->
+          <!-- 生徒：自分の投稿にのみ表示 -->
+          <section class="bidList">
+
+            <!-- .bidCardをfor文で回す -->
+            <div class="bidCard">
+
+              <div class="bidRow">
+
+                <div class="bidLeft">
+
+                  <!-- その人のマイページへ移動 -->
+                  <a href="myPage.html">
+                    <img src="" alt="アイコン">
+                  </a>
+
+                  <a>入札価格：12345円</a>
+
+                </div>
+
+                <div class="bidRight">
+
+                  <button
+                    type="button"
+                    class="decisionBtn shippori-mincho-regular"
+                  >
+                    決定
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- 入札価格を入力する画面 -->
+          <!-- 先生側にのみ表示 -->
+          <section class="bidList">
+
+            <div class="bidCard">
+
+              <div class="bidRowTh">
+
+                <!-- .bidInfoをfor文で回す -->
+                <div class="bidInfo">
+
+                  <div class="bidLeft">
+
+                    <!-- その人のマイページへ移動 -->
+                    <a href="myPage.html">
+                      <img src="" alt="アイコン">
+                    </a>
+
+                    <a>入札価格：12345円</a>
+
+                  </div>
+
+                  <!-- 自分の入札価格表示場所 -->
+                  <div class="bidRightTh">
+
+                    <img src="" alt="アイコン">
+
+                    <a>入札価格：12345円</a>
+
+                  </div>
+
+                </div>
+
+                <!-- 入札価格入力欄：for文外 -->
+                <div class="bidDownTh">
+
+                  <input
+                    type="text"
+                    placeholder="入札価格を500円以上xxxx円以下で入力"
+                    class="inputBid shippori-mincho-regular"
+                  >
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+        <!-- ここまでfor文 -->
+
+      </section>
+
+
       <!-- 画像モーダル -->
       <div id="imgModal" class="imgModal">
+
         <span id="close" class="close">×</span>
-        <img class="modal-content" id="modalImage">
+
+        <img
+          class="modal-content"
+          id="modalImage"
+          alt=""
+        >
+
       </div>
 
 
-
-      <!-- 以下二つとも、続きを読むを押したら表示されるように -->
-      <!-- 生徒：自分の投稿にのみ表示されるように -->
-      <section class="bidList">
-
-        <!-- .bidCardをfor文で回す -->
-        <div class="bidCard">
-
-          <div class="bidRow">
-
-            <div class="bidLeft">
-              <a href="myPage.html"><!-- その人のマイページに飛べるように -->
-                <img src="" alt="アイコン">
-              </a>
-              <a>入札価格：12345円</a>
-            </div>
-
-            <div class="bidRight">
-              <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
-            </div>
-
-          </div>
-
-        </div>
-            
-      </section>
-
-      <!-- 決定押下後に出す確認モーダル -->
-
       <!-- 決定確認モーダル -->
       <div id="decisionModal" class="decision-modal">
+
         <div class="decision-modal-content">
-          <p class="decision-modal-title">本当に決定しますか？</p>
+
+          <p class="decision-modal-title">
+            本当に決定しますか？
+          </p>
 
           <div class="decision-modal-buttons">
-            <a href="cost.html" class="decision-yes-button">
+
+            <a
+              href="cost.html"
+              class="decision-yes-button"
+            >
               はい
             </a>
 
-            <button type="button" id="decisionNoButton" class="decision-no-button">
+            <button
+              type="button"
+              id="decisionNoButton"
+              class="decision-no-button"
+            >
               いいえ
             </button>
+
           </div>
+
         </div>
+
       </div>
 
       <!-- 先生側にのみ表示 -->
