@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/index.css">
 
     <!-- js -->
+    <script src="../static/js/common.js" defer></script>
     <script src="../static/js/index.js" defer></script>
 
     <!-- font awesome -->
@@ -48,7 +49,8 @@
 
         <div class="topRight">
           <!-- TOPにスクロール -->
-          <button type="button" class="shippori-mincho-regular">TOP</button>
+          <!-- <button type="button" class="shippori-mincho-regular">TOP</button> -->
+          <a href="#top" class="shippori-mincho-regular">TOP</a>
 
           <!-- 先生/生徒切り替え -->
           <button type="button" id="change" class="shippori-mincho-regular">先生/生徒 切り替え</button>
@@ -75,8 +77,9 @@
             <nav class="menu pt-serif-regular-italic">
               <ul>
                 <li><a href="#" class="text shippori-mincho-regular">保存した投稿</a></li>
-                <li><a href="#" class="text shippori-mincho-regular">お知らせ</a></li>
-                <li><a href="#" class="text shippori-mincho-regular">利用規約</a></li>
+                <li><a href="#" class="text shippori-mincho-regular">通知</a></li>
+                <li><a href="#" class="text shippori-mincho-regular">お知らせ</a></li><!-- htmlあり -->
+                <li><a href="#" class="text shippori-mincho-regular">利用規約</a></li><!-- htmlあり -->
               </ul>
             </nav>
 
@@ -100,12 +103,14 @@
 
     </header>
 
+    <!-- login -->
     <!-- モーダルの背景マスク -->
-    <div class="mask"></div>
+    <div class="mask" data-modal-name="loginModal"></div>
 
       <!-- モーダル本体（フルスクリーン対応クラスを追加） -->
-      <div class="modal fullscreen">
+      <div class="modal fullscreen" data-modal-name="loginModal">
         <div class="modal-content">
+
           <div class="close-btn-container">
             <button type="button" class="close-btn">×</button>
           </div>
@@ -126,9 +131,39 @@
             </div>
 
           </div>
-
         </div>
+
       </div>
+
+    <!-- Th/St change -->
+    <!-- モーダルの背景マスク -->
+    <div class="mask" data-modal-name="changeModal"></div>
+
+      <!-- モーダル本体（フルスクリーン対応クラスを追加） -->
+      <div class="modal fullscreen" data-modal-name="changeModal">
+        <div class="modal-content">
+
+          <!-- <div class="close-btn-container">
+            <button type="button" class="close-btn">×</button>
+          </div> -->
+
+          <div class="fullscreen-content">
+
+          <div>
+            <p id="changeText" class="changeBtn shippori-mincho-regular">先生/生徒 から 先生/生徒 へ切り替えますか</p>
+          </div>
+              
+            <div class="close-btn-container changeBtnContainer">
+              <button type="button" class="changeBtn shippori-mincho-regular" id="changeYesBtn">はい</button>
+              <button type="button" class="changeBtn shippori-mincho-regular" id="changeNoBtn">いいえ</button>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+
+
 
     <main class="shippori-mincho-regular">
 
@@ -138,7 +173,7 @@
 
       <section id="postList">
 
-        <!-- ここfor文で回す -->
+        <!-- for文 -->
         <!-- .post一個で一つの投稿 -->
         <div class="post">
 
@@ -146,52 +181,38 @@
 
             <div class="cardHead">
 
-              <img src="" alt="アイコン">
+              <!-- 仮のアイコン画像 -->
+              <img src="../static/image/backImg03.jpg" alt="アイコン">
               <h3 class="postTitle">タイトル</h3>
 
             </div>
 
             <div class="postBody">
-              <p>3~4行表示、それ以上は続きを読むを押す</p>
-              <!-- 続きを読むを押したら添付された画像が文章の下に表示されるようにする -> js -->
 
-              <!-- 生徒：自分の投稿にのみ表示されるように -->
-              <section class="bid">
-                <div class="student">
+              <p class="postText">
+                3~4行表示、それ以上は続きを読むを押す<br>
+                ああああああああああああああああああ<br>
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+              </p>
 
-                  <div class="thPrice">
-                    <img src="" alt="アイコン">
-                    <a>入札価格</a>
-                    <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
-                  </div>
+              <!-- 画像あれば表示、続きを読むが押されたら表示 -->
+              <div class="wrap postImg">
+                  <p class="img"><img src="../static/image/backImg03.jpg" alt="サンプル画像" class="popup"></p>
+                  <p class="img"><img src="../static/image/backImg03.jpg" alt="サンプル画像" class="popup"></p>
+                  <p class="img"><img src="../static/image/backImg03.jpg" alt="サンプル画像" class="popup" ></p>
+              </div>
 
-                </div>
-              </section>
-
-              <!-- 先生側にのみ表示 -->
-              <!-- <section class="bid">
-                <div class="teacher">
-                  
-                  <div class="ather">
-                    <img src="" alt="アイコン">
-                    <a>入札価格</a>
-                    <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
-                  </div>
-
-                  <div class="mine">
-                    <img src="" alt="アイコン">
-                    <a>入札価格</a>
-                    <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
-                  </div>
-
-                </div>
-              </section> -->
+              <label class="readMoreLabel">
+                <input type="checkbox" class="readMoreToggle">...続きを読む
+              </label>
 
             </div>
                       
             <div class="cardFooter">
 
-              <a class="time">残り入札時間</a>
+              <a class="time">入札終了まで：MM/dd hh:mm:ss</a>
 
               <!-- タグ:クリック前 -->
               <button type="button" class="markBtn"><i class="fa-regular fa-bookmark" style="color: rgb(0, 0, 0);"></i></button>
@@ -207,29 +228,155 @@
 
       </section>
 
+      <!-- 画像モーダル -->
+      <div id="imgModal" class="imgModal">
+        <span id="close" class="close">×</span>
+        <img class="modal-content" id="modalImage">
+      </div>
+
+
+
+      <!-- 以下二つとも、続きを読むを押したら表示されるように -->
+      <!-- 生徒：自分の投稿にのみ表示されるように -->
+      <section class="bidList">
+
+        <!-- .bidCardをfor文で回す -->
+        <div class="bidCard">
+
+          <div class="bidRow">
+
+            <div class="bidLeft">
+              <a href="myPage.html"><!-- その人のマイページに飛べるように -->
+                <img src="" alt="アイコン">
+              </a>
+              <a>入札価格：12345円</a>
+            </div>
+
+            <div class="bidRight">
+              <button type="button" class="decisionBtn shippori-mincho-regular">決定</button>
+            </div>
+
+          </div>
+
+        </div>
+            
+      </section>
+
+      <!-- 決定押下後に出す確認モーダル -->
+
+      <!-- 決定確認モーダル -->
+      <div id="decisionModal" class="decision-modal">
+        <div class="decision-modal-content">
+          <p class="decision-modal-title">本当に決定しますか？</p>
+
+          <div class="decision-modal-buttons">
+            <a href="cost.html" class="decision-yes-button">
+              はい
+            </a>
+
+            <button type="button" id="decisionNoButton" class="decision-no-button">
+              いいえ
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 先生側にのみ表示 -->
+      <section class="bidList">
+
+        <div class="bidCard">
+
+          <div class="bidRowTh">
+                  
+            <!-- .bidInfo, for文 -->
+            <div class="bidInfo">
+
+              <div class="bidLeft">
+                <a href="myPage.html"><!-- その人のマイページに飛べるように -->
+                  <img src="" alt="アイコン">
+                </a>
+                <a>入札価格：12345円</a>
+              </div>
+
+              <!-- 自分の入札価格表示場所 -->
+              <div class="bidRightTh">
+                <img src="" alt="アイコン">
+                <a>入札価格：12345円</a>
+                <!-- <button type="button" class="decisionBtn shippori-mincho-regular">決定</button> -->
+              </div>
+
+              <!--  -->
+
+            </div>
+
+            <!-- 入札価格入力欄, for文外 -->
+            <div class="bidDownTh">
+              <!-- 数字だけ入力できるようにしてほしい -->
+              <!-- enterで送信 -->
+              <input type="text" placeholder="入札価格を500円以上xxxx円以下で入力" class="inputBid shippori-mincho-regular">
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
       <section id="under">
 
         <!-- myPageに遷移 -->
         <!-- 初期状態これ、アイコン設定されていたらアイコンの画像 -->
-        <button type="button" class="myPageBtn"><i class="fa-regular fa-circle-user" style="color: rgb(0, 0, 0);"></i></button>
+        <button type="button" class="myPageBtn"><i class="fa-regular fa-circle-user"></i></button>
         
         <!-- post.htmlに遷移 -->
-        <button type="button" class="postBtn"><i class="fa-solid fa-circle-plus" style="color: #222;"></i></button>
+        <!-- 先生を選択しているときには非表示 -->
+        <button type="button" class="postBtn">+</button>
 
       </section>
 
-      <!-- 検索結果表示 -->
-      <!-- flask,DB連携して仮データ入れられた後に配置調整したい -->
-      <!--  if kari == 'search' とかで表示させらる -->
-      <!-- <section class="searchResult">
 
-        投稿検索の結果
 
-        ユーザ検索の結果
+      <!-- 検索結果表示領域が別途いる場合 -->
+      <!-- <section class="searchResult"> -->
+
+        <!-- 投稿検索の結果 -->
+        <!-- .postList, bidList二つコピペ -->
+        
+        <!-- ユーザ検索の結果 -->
+        <!-- ユーザ検索もできるようにするのであれば -->
+
+      <!-- </section> -->
+
+
+      
+      <!-- 通知 -->
+      <!-- <section class="notice">
 
       </section> -->
 
     </main>
+
+    <!-- 汎用エラー出力 -->
+    <button id="dialog-btn-10">エラー確認用ボタン<br>エラー出力できるようになったら消す</button>
+      <div id="dialog-10" class="dialog shippori-mincho-regular">
+        <div class="dialog-content">
+
+          <div class="glass-header">
+            <span>Error</span>
+          </div>
+
+          <div class="glass-body">
+            <p>エラーメッセージ</p>
+          </div>
+          
+          <div class="glass-footer">
+            <button class="glass-btn shippori-mincho-regular">Close</button>
+          </div>
+
+        </div>
+      </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     

@@ -1,5 +1,16 @@
 @charset "utf-8";
 
+body{
+  background-image: url(../image/backImg01.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;/* 背景画像繰り返しなし */
+  background-attachment: fixed;/* 画像固定 */
+
+  color: #000;
+  user-select: none;
+}
+
 /* header */
 
 /* １行目 */
@@ -24,8 +35,7 @@ header{
         rgba(187, 216, 234, 0.75),
         rgba(255,255,255,0.45)
     );
-    backdrop-filter: blur(1px);
-
+    /* backdrop-filter: blur(1px); */
 
     text-shadow: 0 1.5px 2px rgba(0, 0, 0, 0.7);
 
@@ -44,40 +54,54 @@ header div.topRow img{
 /* 検索ボックス */
 header div.topRow form div#searchBox input{
     width: 800px;
-    height: 40px;
-    border-radius: 15px;
+    height: 30px;
+
+    padding: 10px 14px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 3px 5px rgba(189, 188, 188, 0.7);
+
     margin: 0 35px;
 }
 header form div#searchBox i{
     position: relative;
-    right: 80px;
+    right: 80px; /* ← 少し近づけると自然 */
     top: 10px;
     transform: translateY(-50%);
+    color: #333;
 }
 /* 検索ボックス */
 
 /* TOP */
-header div.topRow button{
+header div.topRow a{
     position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 8px 20px;
     margin: 5px;
-    color: #000;
+    color: #333;
     background: #f4ff5d;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 14px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
     filter: drop-shadow(0px 2px 4px #ccc);
-    box-shadow: 2px 3px 8px rgb(141, 140, 140)
+    box-shadow: 2px 3px 8px rgb(164, 164, 164)
 }
-header div.topRow button:hover{
+div.topRow a{
+  text-decoration: none;
+}
+header div.topRow a:hover{
     transform: translateY(-2px);
-    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 
-                0 0 5px rgb(0 0 0 / 10%);
+    box-shadow: 0 15px 30px -5px rgba(32, 32, 32, 0.15), 
+                0 0 5px rgba(45, 45, 45, 0.1);
 }
 /* 切り替えボタン */
 header div.topRow button#change{
@@ -88,7 +112,7 @@ header div.topRow button#change{
     padding: 8px 20px;
     margin: 5px;
     color: #fff;
-    background: #000;
+    background: #222;
     font-weight: 600;
     border: none;
     border-radius: 50px;
@@ -147,7 +171,7 @@ header div.navRow button#ac{
     padding: 8px 20px;
     margin: 5px;
     color: #fff;
-    background: #000;
+    background: #222;
     font-weight: 600;
     border: none;
     border-radius: 50px;
@@ -253,7 +277,7 @@ header div.navRow button#ac:hover{
   opacity: 0;
   pointer-events: none;
   transition: 0.4s;
-  z-index: 1;
+  z-index: 2;
 }
 
 #menu-toggle:checked ~ .overlay {
@@ -342,7 +366,7 @@ header div.navRow button#ac:hover{
   visibility: visible;
 }
 
-/* モーダル本体（中央配置） */
+/* ログイン, 切り替えモーダル*/
 .modal {
   position: fixed;
   top: 50%;
@@ -415,7 +439,6 @@ header div.navRow button#ac:hover{
   cursor: pointer;
   transition: 0.3s ease;
 }
-
 .login:hover {
   background: rgba(102, 126, 234);
 }
@@ -430,11 +453,54 @@ header div.navRow button#ac:hover{
   text-decoration: underline;
 }
 .accLink:hover{
-  color: #3b5e91;
+  color: #8afff1;
   transition: 0.3s ease;
 }
 
-/* モーダル */
+/* 切り替えモーダルテキスト */
+#changeText {
+  margin: 0;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+/* yes, noボタンデザイン */
+.changeBtnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+.changeBtn {
+  margin: 0;
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+#changeYesBtn{
+  background: rgba(102, 126, 234, 0.3);
+  border: 2px solid rgba(102, 126, 234, 0.4);
+}
+#changeNoBtn{
+  background: rgba(234, 102, 102, 0.3);
+  border: 2px solid rgba(234, 102, 102, 0.4);
+}
+#changeYesBtn:hover {
+  background: rgba(82, 102, 190, 0.7);
+}
+#changeNoBtn:hover {
+  background: rgba(196, 76, 76, 0.7);
+}
+
+/* ログイン, 切り替えモーダル */
 
 /* main */
 
@@ -495,6 +561,7 @@ section#postList div.post{
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  margin-top: 12px;
 }
 
 .postTitle {
@@ -503,18 +570,24 @@ section#postList div.post{
   color: #222;
 }
 
+.postBody{
+  position: relative;
+}
+/* 通常時 */
 .postBody p {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-
-  line-clamp: 3;
-
   overflow: hidden;
-  color: #333;
-  line-height: 1.6;
-  /* margin-left: 20px; */
-  /* ↑アイコン設定してみてから変える */
+  position: relative;
+  margin-bottom: 0;
+}
+
+/* 続きを読むを押した後 */
+.postBody p.open {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
 }
 
 .cardFooter {
@@ -534,73 +607,440 @@ section#postList div.post{
   border: none;
   cursor: pointer;
   font-size: 1.2rem;
+  color: #4f4e4e;
 }
-/* カード内 */
 
-/* 一番下 */
-#under {}
-
-#under button {
-  pointer-events: auto;
-  backdrop-filter: blur(6px);
+.markBtn {
+  background: none;
   border: none;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  font-size: 24px;
+  color: #4f4e4e;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 4px;
+  transition: 0.2s ease;
+}
+.markBtn:hover {
+  opacity: 0.7;
+}
+
+/* 続きを読む */
+
+.postBody {
+  position: relative;
+  padding-bottom: 25px;
+  margin-left: 5px;
+}
+
+.time{
+  margin-left: 5px;
+}
+
+/* .postBody p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0;
+} */
+
+/* モーダル */
+
+/* 画像モーダル */
+/* モーダルのスタイル */
+/* モーダル（画面中央に固定） */
+.imgModal {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; と同じ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0.25s;
+  z-index: 9999;
+}
+
+/* 表示状態 */
+.imgModal.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 中の画像 */
+.imgModal .modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+/* モーダルの閉じるボタン */
+#close{
+  display: none;
+}
+.imgModal.open #close {
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgba(0,0,0,0.25);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+/* ココから下は画像を並べてる部分のスタイルなので
+　　モーダルとは直接関係がない部分です　　　　　 */
+/********************************************/
+.wrap{
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  gap: 20px;
+  margin: 10px 0;
+}
+.img{
+  width: 200px;
+  height: 200px;
   cursor: pointer;
+  transition: opacity 0.3s ;
+}
+.img:hover {
+  opacity: 0.7;
+}
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.postImg{
+  display: none;
+}
+.postImg.open{
+  display: flex;
+}
+/* 画像モーダル */
+
+
+/* モーダル */
+
+
+/* 続きを読むラベル */
+.readMoreLabel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #1855ab96;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.2);
+}
+.readMoreLabel:hover {
+  color: #1d97b9ca;
+  text-decoration: underline;
+  transition: 0.2s ease;
+}
+.readMoreLabel::after {
+  content: '';
+  width: 10px;
+  height: 5px;
+  background-color: #b6bdc3;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+/* チェックボックスは非表示 */
+.readMoreLabel input {
+  display: none;
+}
+
+/* 続きを読む */
+
+/* カード内 */
+
+/* 以下二つ、続きを読むを押したら表示される処理 */
+/* 生徒側、己の投稿にのみ表示するやつ */
+.bidRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.bidList {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 10px auto;
+  gap: 20px;
+}
+
+.bidCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 15px 25px;
+  margin: 15px 0;
+  width: 90%;
+  max-width: 600px;
+  background: rgba(124, 160, 244, 0.55);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(100, 150, 200, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.bidLeft img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.bidPrice {
+  background: #cce4ff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.decisionBtn {
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  border: 1px solid rgba(75, 75, 75, 0.4);
+  border-radius: 12px;
+  padding: 8px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 6px rgba(68, 67, 67, 0.6);
+}
+.decisionBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(121, 120, 120, 0.7);
+}
+
+/* 確認 */
+/* 決定確認モーダルの背景 */
+.decision-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+/* モーダル本体 */
+.decision-modal-content {
+  width: 90%;
+  max-width: 400px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: inherit;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 確認文 */
+.decision-modal-title {
+  margin: 0 0 25px;
+  color: #333333;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ボタンを並べる部分 */
+.decision-modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* 「はい」「いいえ」共通 */
+.decision-yes-button,
+.decision-no-button {
+  width: 100px;
+  padding: 10px 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* はいボタン */
+.decision-yes-button {
+  display: inline-block;
+  border: 1px solid #333333;
+  background-color: #333333;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* いいえボタン */
+.decision-no-button {
+  border: 1px solid #333333;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* ホバー時 */
+.decision-yes-button:hover {
+  opacity: 0.8;
+}
+
+.decision-no-button:hover {
+  background-color: #f2f2f2;
+}
+/* 確認 */
+
+/* 生徒側、己の投稿にのみ表示するやつ */
+
+/* 先生側 */
+
+.bidRowTh {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bidInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.bidLeft {
+  align-self: flex-start;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(6px);
+  padding: 10px 15px;
+  border-radius: 12px;
+  max-width: 80%;
+  box-shadow: 0 2px 6px rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+.bidLeft a{
+  color: #333;
+}
+.bidRightTh {
+  align-self: flex-end;
+  background: rgba(116, 238, 128, 0.6);
+  backdrop-filter: blur(6px);
+  padding: 10px 15px;
+  border-radius: 12px;
+  max-width: 80%;
+  box-shadow: 0 0 6px rgba(179, 240, 163, 0.6);
+  border: 1px solid rgba(178, 243, 169, 0.4);
+}
+.bidRightTh{
+  color: #222;
+}
+
+/* .bidDownTh {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+} */
+.bidDownTh {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-right: 20px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+
+.bidDownTh input {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 5px rgba(255,255,255,0.7);
+}
+
+
+/* 先生側 */
+
+
+
+
+/* 一番下 */
+
+.myPageBtn,
+.postBtn {
+  position: fixed;
+  bottom: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .myPageBtn {
-  position: fixed;
   left: 40px;
-  bottom: 20px;
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(6px);
-
-  border: none;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  font-size: 24px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  cursor: pointer;
-}
-.myPageBtn i{
-  font-size: 45px;
 }
 .postBtn {
-  position: fixed;
-  right: 40px;
-  bottom: 20px;
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(6px);
-  color: #fff;
-
-  border: none;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  font-size: 24px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  cursor: pointer;
+ right: 40px;
+ color: #333;
+ font-size: 36px;
 }
-.postBtn i{
-  font-size: 55px;
+.myPageBtn i {
+  font-size: 30px;
+  color: #333;
 }
-
+.myPageBtn:hover,
+.postBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255,255,255,0.6);
+}
 
 /* 一番下 */
 
@@ -608,3 +1048,211 @@ section#postList div.post{
 
 
 /* main */
+
+/* 汎用エラー */
+#dialog-btn-10 {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    min-height: 60px;
+    display: inline-block;
+    text-align: center;
+    line-height: 1.4;
+    vertical-align: middle;
+}
+
+#dialog-btn-10:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+#dialog-10 {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn-10 0.3s;
+}
+
+#dialog-10 .dialog-content {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(92, 24, 24, 0.37);
+    overflow: hidden;
+    width: 80%;
+    max-width: 500px;
+    margin: 8% auto;
+    animation: slideInFromTop-10 0.2s ease-out;
+}
+
+#dialog-10 .glass-header {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#dialog-10 .glass-header span {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#dialog-10 .glass-body {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#dialog-10 .glass-body p {
+    margin: 0;
+    line-height: 1.6;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#dialog-10 .glass-footer {
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#dialog-10 .glass-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#dialog-10 .glass-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn-10 {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromTop-10 {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    #dialog-10 .dialog-content {
+        width: 90%;
+        margin: 15% auto;
+    }
+
+    #dialog-10 .glass-header span {
+        font-size: 18px;
+    }
+
+    #dialog-10 .glass-body p {
+        font-size: 14px;
+    }
+}
+/* 汎用エラー */
+
+
+
+
+
+/* ログインエラー文 */
+.login-error-message {
+  margin: -20px 0 5px 5px;
+  color: #790202;
+  font-family: "Shippori Mincho", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  margin-top: 5px;
+}
+
+/* エラーが発生した入力欄 */
+.loginForm input.login-input-error {
+  border: 2px solid #d60000;
+  background: rgba(255, 235, 235, 0.9);
+}
+
+/* エラー状態の入力欄を選択した場合 */
+.loginForm input.login-input-error:focus {
+  border: 2px solid #d60000;
+  box-shadow: 0 0 0 3px rgba(214, 0, 0, 0.15);
+}
+.loginForm {
+  gap: 10px;
+}
+
+/* 入力欄の上に表示するエラー文 */
+.bidPriceError {
+  display: none;
+  margin: 0 0 10px;
+  color: #d60000;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* エラー発生時の入力欄 */
+.inputBid.bidPriceInputError {
+  border: 2px solid #d60000 !important;
+  background-color: #fff0f0 !important;
+  outline: none;
+}
+
+/* エラー状態の入力欄を選択したとき */
+.inputBid.bidPriceInputError:focus {
+  border: 2px solid #d60000 !important;
+  background-color: #fff0f0 !important;
+  outline: none;
+  box-shadow: none;
+}
+
+/* エラー時のプレースホルダー */
+.inputBid.bidPriceInputError::placeholder {
+  color: #8c8c8c;
+  opacity: 1;
+}
+.inputBid {
+  border-radius: 14px;
+}
