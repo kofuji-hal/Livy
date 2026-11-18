@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livy 会員登録</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/accountMake.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="../static/js/accountMake.js" defer></script>
+
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Livy</h1>
+
+        <form action="./validation.html" method="get" onsubmit="return chkAll()">
+
+            <div class="control">
+                <label for="nickname">
+                    ニックネーム(3～20文字)
+                    <span class="required">必須</span>
+                </label>
+                <input type="text"
+                       name="nickname"
+                       id="nickname"
+                       minlength="3"
+                       maxlength="20"
+                       oninput="chkHissu('nickname')"
+                       required>
+                <div id="nicknameErrorMsg" class="errorMsg"></div>
+            </div>
+
+            <div class="control">
+                <label for="mail">
+                    メールアドレス
+                    <span class="required">必須</span>
+                </label>
+                <input type="email"
+                       name="mail"
+                       id="mail"
+                       oninput="chkmailHissu('mail')"
+                       required>
+                <div id="mailErrorMsg" class="errorMsg"></div>
+            </div>
+
+            <div class="control">
+                <label for="denwabangou1">
+                    電話番号
+                    <span class="required">必須</span>
+                </label>
+                <div>
+                    <input type="text"
+                           name="denwabangou1"
+                           id="denwabangou1"
+                           size="4"
+                           maxlength="4"
+                           oninput="chksuuchiHissu()"
+                           required>
+                    -
+                    <input type="text"
+                           name="denwabangou2"
+                           id="denwabangou2"
+                           size="4"
+                           maxlength="4"
+                           oninput="chksuuchiHissu()"
+                           required>
+                    -
+                    <input type="text"
+                           name="denwabangou3"
+                           id="denwabangou3"
+                           size="4"
+                           maxlength="4"
+                           oninput="chksuuchiHissu()"
+                           required>
+                </div>
+                <div id="denwabangouErrorMsg" class="errorMsg"></div>
+            </div>
+
+            <div class="control">
+                <label for="password">
+                    パスワード(8～16文字)
+                    <span class="required">必須</span>
+                </label>
+                <input type="password"
+                       name="password"
+                       id="password"
+                       minlength="8"
+                       maxlength="16"
+                       oninput="chkPassword()"
+                       required>
+                <div id="passwordErrorMsg" class="errorMsg"></div>
+            </div>
+
+            <div class="control">
+                <label for="passcheck">
+                    パスワード確認
+                    <span class="required">必須</span>
+                </label>
+                <input type="password"
+                       name="passcheck"
+                       id="passcheck"
+                       minlength="8"
+                       maxlength="16"
+                       oninput="chkPasswordCheck()"
+                       required>
+                <div id="passcheckErrorMsg" class="errorMsg"></div>
+            </div>
+
+            <div class="control">
+                <button id="signupbutton" type="submit">確認</button>
+            </div>
+
+        </form>
+
+    </div>
+
+            <!-- 確認モーダル -->
+        <div id="confirmModal" class="modal">
+            <div class="modal_content">
+
+                <p class="modal_subtitle">CONFIRMATION</p>
+                <h2>入力内容の確認</h2>
+
+                <div class="modal_line"></div>
+
+                <div class="confirm_list">
+
+                    <div class="confirm_item">
+                        <span class="confirm_label">ニックネーム</span>
+                        <span id="confirmNickname"></span>
+                    </div>
+
+                    <div class="confirm_item">
+                        <span class="confirm_label">メールアドレス</span>
+                        <span id="confirmMail"></span>
+                    </div>
+
+                    <div class="confirm_item">
+                        <span class="confirm_label">電話番号</span>
+                        <span id="confirmTel"></span>
+                    </div>
+
+                    <div class="confirm_item">
+                        <span class="confirm_label">パスワード</span>
+                        <span>●●●●●●●●</span>
+                    </div>
+
+                </div>
+
+                <div class="modal_buttons">
+                    <button type="button" id="changeButton">変更する</button>
+                    <button type="button" id="registerButton">登録する</button>
+                </div>
+
+            </div>
+        </div>
+
+</body>
+</html>
