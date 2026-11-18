@@ -1,0 +1,272 @@
+@charset "utf-8";
+
+/* 全体 */
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    color: #526f85;
+    font-family: "Shippori Mincho", serif;
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(173, 216, 230, 0.28),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(190, 224, 240, 0.35),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #f5fbff,
+            #eaf5fc,
+            #f9fcff
+        );
+}
+
+/* 利用規約画面 */
+.terms {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 利用規約カード */
+.terms_card {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 50px 65px 55px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.94);
+    border: 1px solid #e2edf4;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(91, 132, 160, 0.12);
+    overflow: hidden;
+}
+
+/* 背景装飾 */
+.terms_card::before {
+    content: "";
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    top: -130px;
+    left: -100px;
+    border-radius: 50%;
+    background: rgba(160, 207, 231, 0.15);
+    filter: blur(20px);
+}
+
+.terms_card::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -100px;
+    bottom: -120px;
+    border-radius: 50%;
+    background: rgba(160, 207, 231, 0.13);
+    filter: blur(25px);
+}
+
+/* Livyロゴ */
+.logo {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 35px;
+    color: #527d9c;
+    font-size: 2.6rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-align: center;
+}
+
+/* TERMS OF SERVICE */
+.section_subtitle {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 10px;
+    color: #86a9c1;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-align: center;
+}
+
+/* 利用規約タイトル */
+.terms_card > h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: #527d9c;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-align: center;
+}
+
+/* タイトル下の線 */
+.terms_line {
+    position: relative;
+    z-index: 1;
+    width: 65px;
+    height: 2px;
+    margin: 25px auto 35px;
+    background: linear-gradient(
+        to right,
+        #a7c9df,
+        #6f9fbe
+    );
+}
+
+/* 利用規約本文 */
+.terms_content {
+    position: relative;
+    z-index: 1;
+    height: 400px;
+    padding: 25px 30px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    color: #607f96;
+    background-color: #fbfdff;
+    border: 1px solid #dfeaf1;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 2;
+}
+
+/* 冒頭文 */
+.terms_content > p:first-child {
+    margin-top: 0;
+}
+
+/* 各条項 */
+.terms_content section {
+    margin-top: 30px;
+}
+
+/* 条項タイトル */
+.terms_content h3 {
+    margin: 0 0 10px;
+    color: #527d9c;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* 本文 */
+.terms_content p {
+    margin: 0;
+}
+
+/* 禁止事項リスト */
+.terms_content ul {
+    margin: 12px 0 0;
+    padding-left: 25px;
+}
+
+.terms_content li {
+    margin-bottom: 6px;
+}
+
+/* スクロールバー */
+.terms_content::-webkit-scrollbar {
+    width: 7px;
+}
+
+.terms_content::-webkit-scrollbar-track {
+    background-color: #f1f7fb;
+    border-radius: 10px;
+}
+
+.terms_content::-webkit-scrollbar-thumb {
+    background-color: #b9d2e1;
+    border-radius: 10px;
+}
+
+.terms_content::-webkit-scrollbar-thumb:hover {
+    background-color: #91b4cb;
+}
+
+/* 確認メッセージ */
+.terms_confirmation {
+    position: relative;
+    z-index: 1;
+    margin: 30px 0 25px;
+    color: #607f96;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* ボタンエリア */
+.terms_buttons {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+/* 共通ボタン */
+.terms_buttons button {
+    width: 180px;
+    height: 50px;
+    border-radius: 9px;
+    font-family: "Shippori Mincho", serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+/* 同意しない */
+#disagreeButton {
+    color: #6f9fbe;
+    background-color: #ffffff;
+    border: 1px solid #91b4cb;
+}
+
+/* 同意しない ホバー */
+#disagreeButton:hover {
+    background-color: #f4f9fc;
+    transform: translateY(-2px);
+}
+
+/* 同意する */
+#agreeButton {
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #91b4cb,
+        #6f9fbe
+    );
+    border: none;
+    box-shadow: 0 6px 18px rgba(91, 132, 160, 0.18);
+}
+
+/* 同意する ホバー */
+#agreeButton:hover {
+    background: linear-gradient(
+        135deg,
+        #86abc4,
+        #628fac
+    );
+    box-shadow: 0 9px 22px rgba(91, 132, 160, 0.24);
+    transform: translateY(-2px);
+}
+
+/* ボタンを押した時 */
+.terms_buttons button:active {
+    transform: translateY(0);
+}

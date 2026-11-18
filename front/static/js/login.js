@@ -1,3 +1,9 @@
+// 新規登録→利用規約
+document.getElementById("signupbutton").addEventListener("click",function(){
+    window.location.href = "./terms.html";
+});
+
+// デザイン
 function createRipple() {
 
     const container = document.getElementById("ripple-container");

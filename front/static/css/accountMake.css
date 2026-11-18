@@ -1,0 +1,320 @@
+@charset "utf-8";
+
+/* 全体 */
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 70px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #526f85;
+    font-family: "Shippori Mincho", serif;
+    background:
+        radial-gradient(circle at 15% 25%, rgba(173, 216, 230, 0.28), transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(190, 224, 240, 0.35), transparent 40%),
+        linear-gradient(135deg, #f5fbff, #eaf5fc, #f9fcff);
+}
+
+/* 会員登録カード */
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    padding: 55px 65px 60px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.92);
+    border: 1px solid #e2edf4;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(91, 132, 160, 0.12);
+    overflow: hidden;
+}
+
+/* カード背景装飾 */
+.card::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    top: -120px;
+    left: -100px;
+    border-radius: 50%;
+    background: rgba(160, 207, 231, 0.15);
+    filter: blur(20px);
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    right: -100px;
+    bottom: -100px;
+    border-radius: 50%;
+    background: rgba(160, 207, 231, 0.13);
+    filter: blur(25px);
+}
+
+/* Livyタイトル */
+.card > h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 45px;
+    color: #527d9c;
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-align: center;
+}
+
+/* フォーム */
+.card form {
+    position: relative;
+    z-index: 1;
+}
+
+/* 入力項目 */
+.control {
+    margin-bottom: 30px;
+}
+
+/* ラベル */
+.control label {
+    display: block;
+    margin-bottom: 10px;
+    color: #607f96;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* 必須 */
+.required {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 2px 8px;
+    color: #ffffff;
+    background-color: #91b4cb;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 0.68rem;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+/* 入力欄 */
+.control input {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    color: #526f85;
+    background-color: #fbfdff;
+    border: 1px solid #d7e6ef;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+/* 入力中 */
+.control input:focus {
+    border-color: #91b4cb;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(145, 180, 203, 0.15);
+}
+
+/* 電話番号 */
+.control div:has(#denwabangou1) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #89a8bd;
+}
+
+/* 電話番号入力欄 */
+#denwabangou1,
+#denwabangou2,
+#denwabangou3 {
+    flex: 1;
+    width: 0;
+    text-align: center;
+}
+
+/* エラー時 */
+.control input.errorBg {
+    border-color: #d99b9b;
+    background-color: #fff8f8;
+    box-shadow: 0 0 0 3px rgba(217, 155, 155, 0.12);
+}
+
+/* エラーメッセージ */
+.errorMsg {
+    min-height: 20px;
+    margin-top: 7px;
+    color: #c47777;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+}
+
+/* 確認ボタン */
+#signupbutton {
+    width: 100%;
+    height: 52px;
+    margin-top: 15px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #91b4cb, #6f9fbe);
+    border: none;
+    border-radius: 10px;
+    font-family: "Shippori Mincho", serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(91, 132, 160, 0.18);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+/* 確認ボタン ホバー */
+#signupbutton:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #86abc4, #628fac);
+    box-shadow: 0 9px 22px rgba(91, 132, 160, 0.24);
+}
+
+/* 確認ボタンを押した時 */
+#signupbutton:active {
+    transform: translateY(0);
+}
+
+/* 確認モーダル */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(70, 100, 120, 0.25);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* モーダル本体 */
+.modal_content {
+    width: 90%;
+    max-width: 540px;
+    padding: 45px 50px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.97);
+    border: 1px solid #e2edf4;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(91, 132, 160, 0.20);
+    text-align: center;
+}
+
+/* CONFIRMATION */
+.modal_subtitle {
+    margin: 0 0 10px;
+    color: #86a9c1;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+}
+
+/* タイトル */
+.modal_content h2 {
+    margin: 0;
+    color: #527d9c;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+}
+
+/* タイトル下の線 */
+.modal_line {
+    width: 55px;
+    height: 2px;
+    margin: 22px auto 35px;
+    background: linear-gradient(to right, #a7c9df, #6f9fbe);
+}
+
+/* 確認内容 */
+.confirm_list {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+/* 1項目 */
+.confirm_item {
+    display: flex;
+    padding: 18px 5px;
+    border-bottom: 1px solid #e7eff5;
+    text-align: left;
+}
+
+/* 項目名 */
+.confirm_label {
+    width: 145px;
+    flex-shrink: 0;
+    color: #789bb5;
+    font-weight: 600;
+}
+
+/* 入力内容 */
+.confirm_item span:last-child {
+    color: #526f85;
+    word-break: break-all;
+}
+
+/* ボタンエリア */
+.modal_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* 共通ボタン */
+.modal_buttons button {
+    width: 160px;
+    height: 48px;
+    border-radius: 9px;
+    font-family: "Shippori Mincho", serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* 変更する */
+#changeButton {
+    color: #6f9fbe;
+    background-color: #ffffff;
+    border: 1px solid #91b4cb;
+}
+
+/* 登録する */
+#registerButton {
+    color: #ffffff;
+    background: linear-gradient(135deg, #91b4cb, #6f9fbe);
+    border: none;
+    box-shadow: 0 6px 18px rgba(91, 132, 160, 0.18);
+}
+
+/* ボタンホバー */
+.modal_buttons button:hover {
+    transform: translateY(-2px);
+}
