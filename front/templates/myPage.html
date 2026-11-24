@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livy マイページ</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/mypage.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="../static/js/mypage.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ヘッダー -->
+    <header class="mypage_header">
+
+        <!-- ハンバーガーボタン -->
+        <div class="menu_wrapper">
+            <input type="checkbox" id="menu_toggle" class="menu_checkbox">
+            <label for="menu_toggle" class="menu_icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+        <!-- 投稿一覧 -->
+        <a href="post_list.html" class="header_button">投稿一覧</a>
+
+        <!-- ロゴ -->
+        <a href="about.html" class="header_logo">Livy</a>
+
+        <!-- チャット -->
+        <a href="chat.html" class="chat_link">
+            <span class="chat_icon">•••</span>
+            <span class="chat_text">チャット</span>
+        </a>
+
+    </header>
+
+    <!-- ハンバーガーメニュー -->
+    <nav id="hamburger_menu" class="hamburger_menu">
+        <ul>
+            <li><a href="#">栞した投稿</a></li>
+            <li><a href="#">通知</a></li>
+            <li><a href="terms.html">利用規約</a></li>
+        </ul>
+    </nav>
+
+    <!-- メイン -->
+    <main class="mypage_main">
+
+        <!-- プロフィール -->
+        <section class="profile_section">
+
+            <!-- プロフィール画像 -->
+            <div class="profile_image_area">
+                <label for="profile_image_input" class="profile_image_label">
+                    <img
+                        src="../static/image/default_user.png"
+                        alt="プロフィール画像"
+                        id="profile_image"
+                    >
+                    <span class="image_edit_icon">＋</span>
+                </label>
+
+                <input
+                    type="file"
+                    id="profile_image_input"
+                    accept="image/*"
+                    hidden
+                >
+            </div>
+
+            <!-- プロフィール情報 -->
+            <div class="profile_information">
+
+                <div class="profile_text">
+                    <p class="profile_subtitle">MY PROFILE</p>
+
+                    <h2 id="profile_name">ユーザー名</h2>
+
+                    <p id="profile_introduction">
+                        自己紹介がここに表示されます。
+                    </p>
+
+                    <div class="profile_status">
+                        <span>
+                            依頼解決数
+                            <strong id="solution_count">0</strong>
+                        </span>
+
+                        <span>
+                            評価
+                            <strong id="rating">4.5</strong>
+                        </span>
+                    </div>
+                    <!-- ポートフォリオ -->
+                    <div class="portfolio_area">
+                        <a href="#" id="portfolio" target="_blank" style="display: none;">
+                            ポートフォリオリンク
+                        </a>
+                    </div>
+                </div>
+
+                <a href="edit_profile.html" class="edit_profile_button">
+                    プロフィールを編集
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- 投稿 -->
+        <section class="post_section">
+
+            <!-- 投稿見出し -->
+            <div class="post_heading">
+                <p class="section_subtitle">MY ACTIVITY</p>
+                <h2>投稿一覧</h2>
+            </div>
+
+            <!-- 投稿切り替え -->
+            <div class="post_tabs">
+
+                <button
+                    type="button"
+                    class="post_tab active"
+                    data-tab="request"
+                >
+                    依頼
+                </button>
+
+                <button
+                    type="button"
+                    class="post_tab"
+                    data-tab="solution"
+                >
+                    解決
+                </button>
+
+            </div>
+
+            <!-- 投稿一覧 -->
+            <div class="post_contents">
+
+                <!-- 依頼 -->
+                <div class="post_content active" id="request">
+
+                    <article class="post_card">
+
+                        <div class="post_card_header">
+
+                            <span class="post_category">
+                                依頼
+                            </span>
+
+                            <!-- 三点メニュー -->
+                            <button
+                                type="button"
+                                class="post_menu_button"
+                                aria-label="投稿メニュー"
+                            >
+                                ⋯
+                            </button>
+
+                            <!-- 投稿メニュー -->
+                            <div class="post_menu">
+                                <button type="button" class="edit_post_button">
+                                    編集
+                                </button>
+
+                                <button type="button" class="delete_post_button">
+                                    削除
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- 投稿本文 -->
+                        <p class="post_text">
+                            投稿内容がここに表示されます。
+                        </p>
+
+                        <!-- 投稿下部 -->
+                        <div class="post_card_footer">
+                            <span class="post_date">
+                                2026/11/20
+                            </span>
+
+                            <span class="post_status">
+                                受付中
+                            </span>
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <!-- 解決 -->
+                <div class="post_content" id="solution">
+
+                    <p class="empty_message">
+                        <span class="empty_icon">✓</span>
+                        解決した投稿はありません。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- 新規投稿ボタン -->
+    <a href="create_post.html" class="create_post_link">
+        <span class="create_post_icon">＋</span>
+        <span class="create_post_text">新規投稿</span>
+    </a>
+
+</body>
+
+</html>
