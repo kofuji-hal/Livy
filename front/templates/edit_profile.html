@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livy プロフィール編集</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/edit_profile.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="../static/js/edit_profile.js" defer></script>
+
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Livy</h1>
+        <h2>プロフィール編集</h2>
+
+        <form method="post" enctype="multipart/form-data" onsubmit="return chkAll()"
+>
+            <div class="profile_image_area">
+                <label for="profile_image_input" class="profile_image_label">
+                    <img
+                        src="../static/image/default_user.png"
+                        alt="プロフィール画像"
+                        id="profile_image"
+                    >
+                    <span class="image_edit_icon">＋</span>
+                </label>
+                <input
+                    type="file"
+                    id="profile_image_input"
+                    name="profile_image"
+                    accept="image/*"
+                    hidden
+                >
+            </div>
+            <div class="control">
+                <label for="nickname">
+                    ニックネーム(3～20文字)
+                    <span class="required">必須</span>
+                </label>
+                <input type="text"
+                       name="nickname"
+                       id="nickname"
+                       minlength="3"
+                       maxlength="20"
+                       oninput="chkHissu('nickname')"
+                       required>
+                <div id="nicknameErrorMsg" class="errorMsg"></div>
+            </div>
+            <div class="control">
+                <label for="introduction">
+                    自己紹介文（100文字以内）
+                </label>
+                <textarea
+                    name="introduction"
+                    id="introduction"
+                    maxlength="100"
+                ></textarea>
+            </div>
+            <div class="control">
+                <label for="portfolio">
+                    ポートフォリオリンク
+                </label>
+                <input
+                    type="url"
+                    name="portfolio"
+                    id="portfolio"
+                    placeholder="https://example.com"
+                >
+            </div>
+
+
+            <div class="control">
+                <button id="saveButton" type="submit">保存する</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
