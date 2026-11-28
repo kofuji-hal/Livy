@@ -1,0 +1,567 @@
+@charset "utf-8";
+
+body {
+  background-image: url(../image/backImg05.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* 背景画像繰り返しなし */
+  background-attachment: fixed; /* 画像固定 */
+  color: #000;
+  user-select: none;
+}
+
+/* ヘッダー */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  background: linear-gradient(
+    to bottom,
+    rgba(187, 216, 234, 0.75),
+    rgba(255, 255, 255, 0.45)
+  );
+  text-shadow: 0 1.5px 2px rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+header div.topLeft {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header div.topLeft img {
+  height: auto;
+  width: 200px;
+}
+
+header div.topCenter {
+  margin: 0 650px 0 0;
+}
+
+header div.topCenter h1 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #444;
+  letter-spacing: 0.1rem;
+}
+
+/* メイン */
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  box-sizing: border-box;
+}
+
+div.center {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  margin-bottom: 18px;
+}
+
+h2 {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 12px 40px 12px 55px;
+  margin-bottom: 5px;
+  letter-spacing: 20px;
+  color: #000;
+  font-weight: 500;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+/* 中央コンテンツ */
+#content {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  width: min(630px, 100%);
+  min-height: 720px;
+  margin: 0 auto;
+  padding: 30px 50px 45px;
+  box-sizing: border-box;
+}
+
+/* 金額情報 */
+.priceSection {
+  width: 100%;
+  padding: 32px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.priceList {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.priceRow dt,
+.priceRow dd {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+.priceRow dd {
+  text-align: right;
+}
+
+.totalRow {
+  padding-top: 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.totalRow dt,
+.totalRow dd {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* 決済方法全体 */
+.paymentSection {
+  width: 100%;
+  padding: 24px 30px 32px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* 決済方法一覧 */
+.paymentList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0;
+}
+
+/* 決済方法1件 */
+.paymentItem {
+  width: 100%;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+.paymentItem:last-child {
+  border-bottom: none;
+}
+
+/* 決済方法選択部分 */
+.paymentOption {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 55px;
+  padding: 10px 35px;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.paymentOption:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* 元のラジオボタン */
+.paymentOption input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* カスタムラジオボタン */
+.customRadio {
+  position: relative;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.55);
+  border: 2px solid rgba(90, 90, 90, 0.45);
+  border-radius: 50%;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* ラジオボタン内部 */
+.customRadio::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: rgba(102, 126, 234, 0.85);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
+}
+
+/* ラジオボタン選択時 */
+.paymentOption input[type="radio"]:checked + .customRadio::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.paymentOption input[type="radio"]:checked + .customRadio {
+  border-color: rgba(102, 126, 234, 0.75);
+}
+
+/* 決済方法名 */
+.paymentName {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+/* 展開パネル */
+.paymentPanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.35s ease, opacity 0.25s ease;
+}
+
+/* 展開パネル内部 */
+.paymentPanelInner {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: hidden;
+  margin: 0 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  background: rgba(128, 128, 128, 0.305);
+  border: 1px solid rgba(173, 172, 172, 0.863);
+  border-radius: 12px;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(172, 172, 172, 0.55);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    margin 0.35s ease,
+    padding 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* ラジオボタン選択時にパネルを開く */
+.paymentItem:has(input[type="radio"]:checked) .paymentPanel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* 展開後のパネル */
+.paymentItem:has(input[type="radio"]:checked) .paymentPanelInner {
+  margin: 3px 20px 20px;
+  padding: 20px;
+
+  border-color: rgba(191, 190, 190, 0.5);
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+/* パネル内の入力グループ */
+.paymentFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+/* パネル内のラベル */
+.paymentFormGroup label {
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* パネル内の入力欄 */
+.paymentFormGroup input,
+.paymentFormGroup select {
+  width: 100%;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  color: #444;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* 入力欄フォーカス時 */
+.paymentFormGroup input:focus,
+.paymentFormGroup select:focus {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(102, 126, 234, 0.65);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+}
+
+/* プレースホルダー */
+.paymentFormGroup input::placeholder {
+  color: rgba(68, 68, 68, 0.55);
+}
+
+/* カードの有効期限とセキュリティコード */
+.cardSubInputs {
+  display: flex;
+  gap: 15px;
+}
+
+/* 決済ボタンエリア */
+.paymentButtonArea {
+  display: flex;
+  justify-content: center;
+}
+
+/* 決済ボタン */
+.paymentButton {
+  min-width: 230px;
+  padding: 13px 28px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  background: rgba(102, 126, 234, 0.55);
+  border: 2px solid rgba(102, 126, 234, 0.4);
+  border-radius: 12px;
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.paymentButton:hover {
+  background: rgba(102, 126, 234, 0.7);
+  transform: translateY(-2px);
+  box-shadow:
+    0 7px 18px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.paymentButton:focus-visible {
+  outline: 3px solid rgba(102, 126, 234, 0.55);
+  outline-offset: 3px;
+}
+
+/* 戻るボタン */
+.backPage {
+  text-decoration: none;
+  min-width: 25px;
+  padding: 13px 28px;
+  margin-left: 80px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  background: rgba(230, 92, 92, 0.55);
+  border: 2px solid rgba(213, 95, 95, 0.4);
+  border-radius: 12px;
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.backPage:hover {
+  background: rgba(234, 102, 102, 0.7);
+  transform: translateY(-2px);
+  box-shadow:
+    0 7px 18px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.backPage:focus-visible {
+  outline: 3px solid rgba(234, 102, 102, 0.55);
+  outline-offset: 3px;
+}
+
+/* 決定確認モーダル背景 */
+.decision-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+/* 決定確認モーダル本体 */
+.decision-modal-content {
+  width: 90%;
+  max-width: 400px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: inherit;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 確認文 */
+.decision-modal-title {
+  margin: 0 0 25px;
+  color: #333333;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* モーダルボタンエリア */
+.decision-modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* はい・いいえ共通 */
+.decision-yes-button,
+.decision-no-button {
+  width: 100px;
+  padding: 10px 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* はいボタン */
+.decision-yes-button {
+  display: inline-block;
+  border: 1px solid #333333;
+  background-color: #333333;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* いいえボタン */
+.decision-no-button {
+  border: 1px solid #333333;
+  background-color: #ffffff;
+  color: #333333;
+  text-decoration: none;
+}
+
+/* はいボタンホバー時 */
+.decision-yes-button:hover {
+  opacity: 0.8;
+}
+
+/* いいえボタンホバー時 */
+.decision-no-button:hover {
+  background-color: #f2f2f2;
+}
+
+
+
+
+
+
+
+
+/* 入力エラーメッセージ */
+.paymentError {
+  margin: 0;
+  color: #d60000;
+  font-family: "Shippori Mincho", serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* 入力エラー */
+.paymentFormGroup input.paymentInputError,
+.paymentFormGroup select.paymentInputError {
+  border: 2px solid #d60000;
+  background: rgba(255, 235, 235, 0.55);
+}
+
+/* 入力エラー時のフォーカス */
+.paymentFormGroup input.paymentInputError:focus,
+.paymentFormGroup select.paymentInputError:focus {
+  border: 2px solid #d60000;
+  box-shadow: 0 0 0 3px rgba(214, 0, 0, 0.12);
+}
+
+/* 決済方法未選択エラー */
+.paymentSection.paymentSelectError {
+  border: 2px solid #d60000;
+}
+
+/* 決済方法未選択エラー文 */
+.paymentSelectErrorMessage {
+  margin: 5px 0 10px;
+  color: #d60000;
+  font-family: "Shippori Mincho", serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-align: center;
+}

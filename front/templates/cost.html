@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livy Cost</title>
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/cost.css">
+
+    <!-- js -->
+    <script src="../static/js/common.js" defer></script>
+    <script src="../static/js/cost.js" defer></script>
+
+    <!-- font awesome -->
+    <link href="https://use.fontawesome.com/releases/v6.7.2/css/all.css" rel="stylesheet">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+</head>
+
+<body class="shippori-mincho-regular">
+
+    <header>
+
+        <div class="topLeft">
+          <img src="../static/image/Logo01.PNG" alt="Livy Logo01">
+        </div>
+
+        <div class="topCenter">
+            <h1>購入情報確認 | Livy</h1>
+        </div>
+
+    </header>
+
+
+
+    <main class="shippori-mincho-regular">
+
+      <div id="content">
+
+        <!-- 金額情報 -->
+        <section class="priceSection">
+
+          <div class="center" id="costh2">
+            <h2>小計</h2>
+          </div>
+          
+          <dl class="priceList">
+            <div class="priceRow">
+              <dt>小計</dt>
+              <dd>10,000円</dd>
+            </div>
+
+            <div class="priceRow">
+              <dt>手数料</dt>
+              <dd>10％</dd>
+            </div>
+
+            <div class="priceRow totalRow">
+              <dt>合計</dt>
+              <dd>11,000円</dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- 決済方法 -->
+        <section class="paymentSection">
+
+          <div class="center" id="costh2">
+            <h2>決済方法選択</h2>
+          </div>
+
+          <div class="paymentList">
+
+            <!-- クレジットカード -->
+            <div class="paymentItem">
+              <label class="paymentOption">
+                <input type="radio" name="paymentMethod" value="creditCard">
+                <span class="customRadio"></span>
+                <span class="paymentName">クレジットカード</span>
+              </label>
+
+              <div class="paymentPanel">
+                <div class="paymentPanelInner">
+
+                  <div class="paymentFormGroup">
+                    <label for="cardNumber">カード番号</label>
+                    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" inputmode="numeric" class="shippori-mincho-regular">
+                  </div>
+
+                  <div class="cardSubInputs">
+                    <div class="paymentFormGroup">
+                      <label for="expirationDate">有効期限</label>
+                      <input type="text" id="expirationDate" name="expirationDate" placeholder="MM / YY" inputmode="numeric" maxlength="5" class="shippori-mincho-regular">
+                    </div>
+
+                    <div class="paymentFormGroup">
+                      <label for="securityCode">セキュリティコード</label>
+                      <input type="text" id="securityCode" name="securityCode" placeholder="123" inputmode="numeric" class="shippori-mincho-regular">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- コンビニ払い -->
+            <div class="paymentItem">
+              <label class="paymentOption">
+                <input type="radio" name="paymentMethod" value="convenienceStore">
+                <span class="customRadio"></span>
+                <span class="paymentName">コンビニ払い</span>
+              </label>
+
+              <div class="paymentPanel">
+                <div class="paymentPanelInner">
+
+                  <div class="paymentFormGroup">
+                    <label for="convenienceStore">コンビニを選択</label>
+
+                    <select id="convenienceStore" name="convenienceStore" class="shippori-mincho-regular">
+                      <option value="">選択してください</option>
+                      <option value="sevenEleven">セブン‐イレブン</option>
+                      <option value="familyMart">ファミリーマート</option>
+                      <option value="lawson">ローソン</option>
+                    </select>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- 銀行振込 -->
+            <div class="paymentItem">
+              <label class="paymentOption">
+                <input type="radio" name="paymentMethod" value="bankTransfer">
+                <span class="customRadio"></span>
+                <span class="paymentName">銀行振込</span>
+              </label>
+
+              <div class="paymentPanel">
+                <div class="paymentPanelInner">
+
+                  <div class="paymentFormGroup">
+                    <label for="bankName">銀行名</label>
+                    <input type="text" id="bankName" name="bankName" placeholder="銀行名を入力" class="shippori-mincho-regular">
+                  </div>
+
+                  <div class="paymentFormGroup">
+                    <label for="branchName">支店名</label>
+                    <input type="text" id="branchName" name="branchName" placeholder="支店名を入力" class="shippori-mincho-regular">
+                  </div>
+
+                  <div class="paymentFormGroup">
+                    <label for="accountType">口座種別</label>
+                    <select id="accountType" name="accountType" class="shippori-mincho-regular">
+                      <option value="">選択してください</option>
+                      <option value="ordinary">普通</option>
+                      <option value="current">当座</option>
+                    </select>
+                  </div>
+
+                  <div class="paymentFormGroup">
+                    <label for="accountNumber">口座番号</label>
+                    <input type="text" id="accountNumber" name="accountNumber" placeholder="口座番号を入力" inputmode="numeric" class="shippori-mincho-regular">
+                  </div>
+
+                  <div class="paymentFormGroup">
+                    <label for="accountHolder">口座名義</label>
+                    <input type="text" id="accountHolder" name="accountHolder" placeholder="口座名義を入力" class="shippori-mincho-regular">
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 決済ボタン -->
+        <div class="paymentButtonArea">
+          <button type="button" id="paymentButton" class="paymentButton shippori-mincho-regular">
+            決済内容を確認する
+          </button>
+          <a href="index.html" class="backPage">戻る</a>
+        </div>
+
+      </div>
+
+    </main>
+
+
+
+
+    <!-- 決定確認モーダル -->
+    <div id="decisionModal" class="decision-modal">
+      <div class="decision-modal-content">
+
+        <p id="decisionModalTitle" class="decision-modal-title">
+          本当に購入を確定しますか？
+        </p>
+
+        <div class="decision-modal-buttons">
+
+          <button type="button" id="decisionYesButton" class="decision-yes-button">
+            はい
+          </button>
+
+          <button type="button" id="decisionNoButton" class="decision-no-button">
+            いいえ
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- 汎用エラー出力 -->
+    <button id="dialog-btn-10">エラー確認用ボタン<br>エラー出力できるようになったら消す</button>
+      <div id="dialog-10" class="dialog shippori-mincho-regular">
+        <div class="dialog-content">
+
+          <div class="glass-header">
+            <span>Error</span>
+          </div>
+
+          <div class="glass-body">
+            <p>エラーメッセージ</p>
+          </div>
+          
+          <div class="glass-footer">
+            <button class="glass-btn shippori-mincho-regular">Close</button>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+</body>
+
+</html>
